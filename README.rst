@@ -23,7 +23,7 @@ Installation
 		(r'^janrain/', include('janrain.urls')),
 	)
 
-* Add ``janrain`` to your ``INSTALLED_APPS``::
+* Add ``janrain`` to your ``INSTALLED_APPS`` in ``settings.py``::
 
 	INSTALLED_APPS = (
 		'django.contrib.admin',
@@ -33,7 +33,7 @@ Installation
 		'janrain',
 	)
 
-* Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS``::
+* Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS`` in ``settings.py``::
 
 	# put janrain.backends.JanrainBackend first
 	AUTHENTICATION_BACKENDS = (
@@ -41,11 +41,11 @@ Installation
 		'django.contrib.auth.backends.ModelBackend',
 	)
 
-* Add your janrain api key to ``settings``::
+* Add your janrain api key to ``settings.py``::
 
 	JANRAIN_RPX_API_KEY = "0123456789abcdef0123456789abcdef0123456789abcdef"
 	
-* Add your janrain domain to ``settings``::
+* Add your janrain domain to ``settings.py``::
 
     JANRAIN_DOMAIN = "yoursite.rpxnow.com"
 
