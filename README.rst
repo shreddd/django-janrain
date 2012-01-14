@@ -15,15 +15,15 @@ In practice, you should consider tweaking it to meet your specific user registra
 Installation
 ============
 
-Place the ``janrain`` directory in your project directory
+* Place the ``janrain`` directory in your project directory
 
-Add a url entry in ``urls.py``::
+* Add a url entry in ``urls.py``::
 
 	urlpatterns += patterns('',
 		(r'^janrain/', include('janrain.urls')),
 	)
 
-Add ``janrain`` to your ``INSTALLED_APPS``::
+* Add ``janrain`` to your ``INSTALLED_APPS``::
 
 	INSTALLED_APPS = (
 		'django.contrib.admin',
@@ -33,7 +33,7 @@ Add ``janrain`` to your ``INSTALLED_APPS``::
 		'janrain',
 	)
 
-Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS``::
+* Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS``::
 
 	# put janrain.backends.JanrainBackend first
 	AUTHENTICATION_BACKENDS = (
@@ -41,11 +41,11 @@ Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS``::
 		'django.contrib.auth.backends.ModelBackend',
 	)
 
-Add your janrain api key to ``settings``::
+* Add your janrain api key to ``settings``::
 
 	JANRAIN_RPX_API_KEY = "0123456789abcdef0123456789abcdef0123456789abcdef"
 	
-Add your janrain domain to ``settings``::
+* Add your janrain domain to ``settings``::
 
     JANRAIN_DOMAIN = "yoursite.rpxnow.com"
 
@@ -55,8 +55,8 @@ Add your janrain domain to ``settings``::
 Usage
 =====
 
-Visit the login page at ``/janrain/login/`` to login
+* Visit the login page at ``/janrain/login/`` to login
 
-Visit ``/janrain/logout/`` to log out.
+* Visit ``/janrain/logout/`` to log out.
 
-You will probably need to tweak the code to meet your needs, but this should get you started.
+* You will probably need to tweak the code to meet your needs, but this should get you started.
