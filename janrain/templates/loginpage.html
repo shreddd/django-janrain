@@ -1,0 +1,56 @@
+{% extends "home/templates/base.html" %}
+
+{% block title %} Janrain :: Login {% endblock %}
+
+{% block extra_css %}
+<style type="text/css">
+
+.error {
+    color: red;
+}
+.faq{
+	font-weight: bold;
+	font-size: 1.1em;
+}
+.answer{
+	padding-bottom: 1em;
+}
+</style>
+
+{% endblock %}
+
+{% block extra_javascript %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('p.answer').hide();
+});
+
+function showFaq(option){
+	$('#'+option).slideToggle();
+}
+
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Login and Registration</h1>
+<div id="running_text">
+
+<p>You can login or register using an existing identity.<br />
+	Note: this will redirect you to an external provider rpxnow.com to validate your credentials.</p>
+
+<iframe src='http://{{ janrain_domain }}.rpxnow.com/openid/embed?token_url=http://{{ hostname }}/janrain/login/?redirect_to={{next|urlencode}}' scrolling="no" frameBorder="no" allowtransparency="true" style="width:400px;height:240px"></iframe>
+
+</div>
+<div id="messages">
+    {% if messages %}
+        {% for message in messages %}
+        <p style='font-family:"lucida grande",Verdana,sans-serif;' {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+{% endblock %}
