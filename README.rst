@@ -6,9 +6,16 @@ Janrain integration into Django using built-in django.contrib.auth package. It
 creates a django user using django.contrib.auth.models.User on first login and
 retrieves that User object on future logins.
 
+This is a fork of the very useful django-janrain app (https://github.com/spuriousdata/django-janrain), 
+but I decided to add built-in templates and models so that it works out of the box.
+
+In practice, you should consider tweaking it to meet your specific user registration needs.
+
 ============
 Installation
 ============
+
+Place the ``janrain`` directory in your project directory
 
 Add a url entry in ``urls.py``::
 
@@ -42,19 +49,14 @@ Add your janrain domain to ``settings``::
 
     JANRAIN_DOMAIN = "yoursite.rpxnow.com"
 
+
+
 =====
 Usage
 =====
 
-Configure your ``token_url`` in janrain to be http://yoursite.com/janrain/login/
+Visit the login page at ``/janrain/login/`` to login
 
-Create a template called ``janrain/loginpage.html`` to contain your janrain
-login iframe::
+Visit ``/janrain/logout/`` to log out.
 
-	<iframe src="http://yoursite.rpxnow.com/openid/embed?token_url=http{% if request.is_secure()%}s{%endif%}{{("://" + request.get_host() + "/janrain/login/?redirect_to=" + next)|urlencode}}" scrolling="no" frameBorder="no" allowtransparency="true" style="width:400px;height:240px"></iframe>
-
-Place your javascript overlay sign in buttons in your template::
-
-	<a class="rpxnow" onclick="return false;" href="https://yoursite.rpxnow.com/openid/v2/signin?token_url=http{% if request.is_secure()%}s{%endif%}{{("://" + request.get_host() + "/janrain/login/?redirect_to=" + 'http://yoursite.com/redirect/to/path/')|urlencode}}">Sign In</a>
-
-Create a button to hit ``/janrain/logout/`` to log out.
+You will probably need to tweak the code to meet your needs, but this should get you started.
