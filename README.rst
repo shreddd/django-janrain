@@ -37,6 +37,10 @@ Add ``janrain.backends.JanrainBackend`` to ``AUTHENTICATION_BACKENDS``::
 Add your janrain api key to ``settings``::
 
 	JANRAIN_RPX_API_KEY = "0123456789abcdef0123456789abcdef0123456789abcdef"
+	
+Add your janrain domain to ``settings``::
+
+    JANRAIN_DOMAIN = "yoursite.rpxnow.com"
 
 =====
 Usage
